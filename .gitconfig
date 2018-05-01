@@ -1,2 +1,5 @@
 [core]
 	excludesfile = /etc/.gitignore-global
+[user]
+	name = juandata
+	email = juandavidtabaresarce@gmail.com
