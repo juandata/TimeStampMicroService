@@ -22,4 +22,9 @@ app.get('/search', function(req, res){
 });
 app.listen(process.env.PORT);
   */
-app.use(express.static('views/index.html'))
+app.get('/', function(req, res) {
+     res.end('Hello World!');
+   });
+app.use(express.static('views/index.html'));
+app.listen(process.env.PORT);
+
