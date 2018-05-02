@@ -22,13 +22,11 @@ app.get('/search', function(req, res){
 });
 app.listen(process.env.PORT);
   */
+app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-  app.use(express.static('/public/'))
-  res.sendFile('index.html', { root: __dirname + '/views/'})
-})
-app.get('public/style.css', function(req, res) {
-  res.sendFile(__dirname + '/public/style.css/')
+  //res.sendFile('index.html', { root: __dirname + '/views/'})
+  res.sendFile(__dirname + '/views/index.html')
 })
 
 app.listen(process.env.PORT, function () {
