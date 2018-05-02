@@ -23,7 +23,6 @@ app.get('/search', function(req, res){
 app.listen(process.env.PORT);
   */
 app.get('/', function(req, res) {
-  console.log("get method called");
   res.sendFile('index.html', { root: __dirname + '/views'});
    });
 app.listen(process.env.PORT);
