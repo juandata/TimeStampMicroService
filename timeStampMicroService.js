@@ -24,14 +24,11 @@ app.listen(process.env.PORT);
   */
 
 app.get('/', function(req, res) {
-  console.log("get method of app midlleware function called");
   app.use(express.static('/public/'))
   res.sendFile('index.html', { root: __dirname + '/views/'})
 })
-app.get('/public/sty', function(req, res) {
-  console.log("get method of app midlleware function called");
-  app.use(express.static('/public/'))
-  res.sendFile('index.html', { root: __dirname + '/views/'})
+app.get('public/style.css', function(req, res) {
+  res.sendFile(__dirname + '/public/style.css/')
 })
 
 app.listen(process.env.PORT, function () {
