@@ -23,7 +23,8 @@ app.get('/search', function(req, res){
 app.listen(process.env.PORT);
   */
 app.get('/', function(req, res) {
-  res.sendFile('./views/index.html');
+  res.sendFile('index.html', { root: __dirname + '/views'});
+  console.log(res);
    });
 app.listen(process.env.PORT);
 
