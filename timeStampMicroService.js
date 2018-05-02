@@ -15,10 +15,11 @@
    });
    app.listen(process.env.PORT);
    */
- //process the query and outputs it to the res  
+ /*//process the query and outputs it to the res  
 app.get('/search', function(req, res){
   var query = req.query;
   res.send(query);
 });
 app.listen(process.env.PORT);
-  
+  */
+app.use(express.static('views/index.html'))
