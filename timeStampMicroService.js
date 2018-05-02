@@ -22,6 +22,7 @@ app.get('/search', function(req, res){
 });
 app.listen(process.env.PORT);
   */
+
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
