@@ -22,11 +22,13 @@ app.get('/search', function(req, res){
 });
 app.listen(process.env.PORT);
   */
+app.use(express.static('public'))
 
 app.get('/', function(req, res) {
   console.log(res);
-  res.sendFile('index.html', { root: __dirname + '/views'})
+  res.sendFile('index.html', { root: __dirname + '/views/'})
 })
+
 app.listen(process.env.PORT, function () {
   console.log('Node.js listening ...');
 });
