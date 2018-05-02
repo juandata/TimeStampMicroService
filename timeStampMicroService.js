@@ -25,11 +25,12 @@ app.get('/search', function(req, res){
 app.listen(process.env.PORT);
   */
 
-app.use(express.static('public'));
+//app.use(express.static('public'));
+app.use('/public', express.static(process.cwd() + '/public'));
 
 app.get('/', function(req, res) {
-  //res.sendFile('index.html', { root: __dirname + '/views/'})
-  res.sendFile(__dirname + '/views/index.html')
+  res.sendFile('index.html', { root: __dirname + '/views/'})
+  //res.sendFile(__dirname + '/views/index.html')
 })
 
 app.listen(process.env.PORT, function () {
