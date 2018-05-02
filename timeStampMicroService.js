@@ -8,6 +8,8 @@
    var app = express();
    var fs = require('fs');
   
+  'use strict';
+
 
   /* //output hello world
    app.get('/', function(req, res) {
