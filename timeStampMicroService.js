@@ -7,10 +7,7 @@
    var express = require('express');
    var app = express();
    var fs = require('fs');
-  
   'use strict';
-
-
   /* //output hello world
    app.get('/', function(req, res) {
      res.end('Hello World!');
@@ -26,8 +23,8 @@ app.listen(process.env.PORT);
   */
 
 //app.use(express.static('public'));
-app.use('/public', express.static(process.cwd() + '/public'));
-
+app.use('/public', express.static('/app/public'));
+var el = process.cwd();
 app.get('/', function(req, res) {
   res.sendFile('index.html', { root: __dirname + '/views/'})
   //res.sendFile(__dirname + '/views/index.html')
