@@ -25,9 +25,11 @@ app.listen(process.env.PORT);
 
 //app.use(express.static('public'));
 app.use('/public', express.static('/app/public'));
+
 app.get('/', function(req, res) {
-   var urlObject = url.parse(req.url, true);
-  console.log(urlObject);
+    console.log("this never appears"); 
+   //var urlObject = url.parse(req.url, true);
+  //console.log(urlObject);
   res.sendFile('index.html', { root: __dirname + '/views/'})
   //res.sendFile(__dirname + '/views/index.html')
   //var query = req.query;
