@@ -24,7 +24,12 @@ app.listen(process.env.PORT);
   */
 app.get('/', function(req, res) {
   console.log("middleware function called");
-  res.sendFile('index.html', { root: __dirname + '/views'});
-   })
-app.listen(process.env.PORT);
+  res.sendFile('index.html', { root: __dirname + '/views'}, function(err){
+    if(err) throw err;
+    console.log("no error");
+  })
+})
+app.listen(process.env.PORT, function () {
+  console.log('Node.js listening ...');
+});
 
