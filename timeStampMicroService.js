@@ -22,10 +22,15 @@ app.get('/search', function(req, res){
 });
 app.listen(process.env.PORT);
   */
-app.use(express.static('public'))
 
 app.get('/', function(req, res) {
-  console.log(res);
+  console.log("get method of app midlleware function called");
+  app.use(express.static('/public/'))
+  res.sendFile('index.html', { root: __dirname + '/views/'})
+})
+app.get('/public/sty', function(req, res) {
+  console.log("get method of app midlleware function called");
+  app.use(express.static('/public/'))
   res.sendFile('index.html', { root: __dirname + '/views/'})
 })
 
