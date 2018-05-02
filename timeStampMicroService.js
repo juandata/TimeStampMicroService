@@ -23,8 +23,7 @@ app.get('/search', function(req, res){
 app.listen(process.env.PORT);
   */
 app.get('/', function(req, res) {
-     res.end('Hello World!');
+  res.sendFile('./views/index.html');
    });
-app.use(express.static('views/index.html'));
 app.listen(process.env.PORT);
 
