@@ -25,7 +25,6 @@ app.listen(process.env.PORT);
 
 //app.use(express.static('public'));
 app.use('/public', express.static('/app/public'));
-var el = process.cwd();
 app.get('/', function(req, res) {
    var urlObject = url.parse(req.url, true);
   console.log(urlObject);
