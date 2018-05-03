@@ -28,10 +28,13 @@ app.use(function (req, res, next) {
   //console.log("Middleware de nivel de aplicación sin ninguna vía de acceso de montaje"); 
     console.log('Request URL:', req.originalUrl);
   next();
-}); 
+},function(req, res, next){
+  console.log("otra función");
+  next();
+ } 
+); 
+
 app.use('/public', express.static('/app/public'));
-
-
 app.get('/', function(req, res) {
     console.log("this never appears"); 
    //var urlObject = url.parse(req.url, true);
