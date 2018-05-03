@@ -26,11 +26,17 @@ app.listen(process.env.PORT);
 //app.use(express.static('public'));
 app.use(function (req, res, next) {
   //console.log("Middleware de nivel de aplicación sin ninguna vía de acceso de montaje"); 
+  
+  
+  
+  
   console.log('Request URL:', req.url);
   var regExpr = /%/;
   var date = req.url.split(regExpr);
   console.log('divided : ', date);
-  var month = date[0].split(//*/);
+  var month = date[0].substr(1);
+  console.log(month);
+  
   
   next();
 },function(req, res, next){
@@ -40,6 +46,7 @@ app.use(function (req, res, next) {
 ); 
 
 app.use('/public', express.static('/app/public'));
+/*
 app.get('/', function(req, res) {
     console.log("this never appears"); 
    //var urlObject = url.parse(req.url, true);
@@ -50,7 +57,7 @@ app.get('/', function(req, res) {
   //res.send(query);
   //console.log(query);
  
-})
+})*/
 
 app.listen(process.env.PORT, function () {
   console.log('Node.js listening ...');
