@@ -18,11 +18,8 @@ function Unix_timestamp(t) {
   var year = dt.getFullYear();
   return months[month] + ' ' + day + ', ' + year;
 };
-  console.log("1");
-app.use(function(err, req, res, next){
-  console.log("there was an error");
-});
 app.use(function(req, res, next) {
+    console.log("1");
   var date = req.url.substr(1);
   var miliseconds = parseInt(date);
   var unixDate = new Date(miliseconds);
@@ -62,3 +59,4 @@ app.use('/public', express.static('/app/public'));
 app.listen(process.env.PORT, function() {
   console.log('Node.js listening ...');
 });
+ 
