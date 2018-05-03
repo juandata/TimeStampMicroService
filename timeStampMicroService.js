@@ -55,7 +55,7 @@ app.use(function(req, res, next) {
   } else {
     readableDate = Unix_timestamp(date);
 
-    if(unixDate == "Invalid Date"){
+    if(readableDate == "Invalid Date"){
       jsonResp = {
       "unix": null,
       "natural": null
