@@ -19,7 +19,7 @@ function Unix_timestamp(t) {
   return months[month] + ' ' + day + ', ' + year;
 };
 app.use(function(req, res, next) {
-    console.log("1");
+    console.log(res);
   var date = req.url.substr(1);
   var miliseconds = parseInt(date);
   var unixDate = new Date(miliseconds);
