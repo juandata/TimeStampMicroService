@@ -25,9 +25,10 @@ app.listen(process.env.PORT);
 
 //app.use(express.static('public'));
 app.use(function (req, res, next) {
-  console.log('Time:', Date.now());
+  //console.log("Middleware de nivel de aplicación sin ninguna vía de acceso de montaje"); 
+    console.log('Request URL:', req.originalUrl);
   next();
-});
+}); 
 app.use('/public', express.static('/app/public'));
 
 
