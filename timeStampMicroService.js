@@ -26,8 +26,9 @@ app.listen(process.env.PORT);
 //app.use(express.static('public'));
 app.use(function (req, res, next) {
   //console.log("Middleware de nivel de aplicación sin ninguna vía de acceso de montaje"); 
-  
-  
+  var dateInt = parseInt(req.url.substr(0));
+  var unixDate = new Date(1450137600);
+  console.log(unixDate);
   
   
   console.log('Request URL:', req.url);
