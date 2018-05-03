@@ -53,7 +53,9 @@ app.use(function(req, res, next) {
   }
   next();
 });
-
+app.use(function(err, req, res, next){
+  console.log(err.stack);
+});
 app.use('/public', express.static('/app/public'));
 app.listen(process.env.PORT, function() {
   console.log('Node.js listening ...');
