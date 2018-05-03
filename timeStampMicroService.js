@@ -21,13 +21,13 @@ app.get('/search', function(req, res){
 });
 app.listen(process.env.PORT);
   */
-     function Unix_timestamp(t)
-{
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+function Unix_timestamp(t) {
 var dt = new Date(t*1000);
-var hr = dt.getHours();
-var m = "0" + dt.getMinutes();
-var s = "0" + dt.getSeconds();
-return hr+ ':' + m.substr(-2) + ':' + s.substr(-2);  
+var month = dt.getMonth();
+var day =  dt.getDate();
+var year = dt.getFullYear();
+return months[month] + ' ' + day + ', ' + year;  
 };
 //app.use(express.static('public'));
 app.use(function (req, res, next) {
@@ -44,10 +44,8 @@ app.use(function (req, res, next) {
       //console.log("the date is wrong");
        }
   else {  
-var n = parseInt(date);
-var r = Unix_timestamp(n);
-console.log(r);
-       
+var readableDate = Unix_timestamp(date);
+console.log(readableDate);
   }
   next();
 }
