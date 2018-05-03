@@ -8,7 +8,6 @@
    var app = express();
    var fs = require('fs');
    var url = require('url');
-  'use strict';
   /* //output hello world
    app.get('/', function(req, res) {
      res.end('Hello World!');
@@ -22,7 +21,14 @@ app.get('/search', function(req, res){
 });
 app.listen(process.env.PORT);
   */
-
+     function Unix_timestamp(t)
+{
+var dt = new Date(t*1000);
+var hr = dt.getHours();
+var m = "0" + dt.getMinutes();
+var s = "0" + dt.getSeconds();
+return hr+ ':' + m.substr(-2) + ':' + s.substr(-2);  
+};
 //app.use(express.static('public'));
 app.use(function (req, res, next) {
   //console.log("Middleware de nivel de aplicación sin ninguna vía de acceso de montaje"); 
@@ -37,18 +43,11 @@ app.use(function (req, res, next) {
         
       //console.log("the date is wrong");
        }
-  else {
-       console.log(unixDate);
-       function Unix_timestamp(t)
-{
-var dt = new Date(t*1000);
-var hr = dt.getHours();
-var m = "0" + dt.getMinutes();
-var s = "0" + dt.getSeconds();
-return hr+ ':' + m.substr(-2) + ':' + s.substr(-2);  
-}
-
-console.log(Unix_timestamp(1412743274));
+  else {  
+var n = parseInt(date);
+var r = Unix_timestamp(n);
+console.log(r);
+       
   }
   next();
 }
