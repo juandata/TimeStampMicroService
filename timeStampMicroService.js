@@ -27,6 +27,11 @@ app.listen(process.env.PORT);
 app.use(function (req, res, next) {
   //console.log("Middleware de nivel de aplicación sin ninguna vía de acceso de montaje"); 
     console.log('Request URL:', req.originalUrl);
+      console.log('Request URL 2:', req.url);
+    var urlObject = url.parse(req.url, true);
+        console.log('Request URL 3:', urlObject);
+
+
   next();
 },function(req, res, next){
   console.log("otra función");
