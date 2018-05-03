@@ -41,9 +41,8 @@ app.use(function(req, res, next) {
     var regExpr = /%/;
     date = date.split(regExpr);
     console.log('divided : ', date);
-    readableDate = Unix_timestamp(date);
-    var date1 = new Date();
-
+    var date1 = new Date(date[0] + " " + date[1] + "," + date[2]);
+    console.log(date1.getTime());
     //console.log("the date is wrong");
   } else {
     readableDate = Unix_timestamp(date);
