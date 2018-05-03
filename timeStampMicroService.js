@@ -42,10 +42,28 @@ app.use(function(req, res, next) {
     date = date.split(regExpr);
     console.log('divided : ', date);
     var date1 = new Date(date[0] + " " + date[1] + "," + date[2]);
-    console.log(date1.getTime());
+    var date2= date1.getTime();
+    var timestamp = Math.floor(date2/ 1000);
+    jsonResp = {
+      "unix": timestamp,
+      "natural": date[0] + " " + date[1] + "," + date[2]
+    };
+    
+    res.json(jsonResp);
+    
     //console.log("the date is wrong");
   } else {
     readableDate = Unix_timestamp(date);
+
+    if(unixDate == "Invalid Date"){
+      jsonResp = {
+      "unix": null,
+      "natural": null
+    };
+    
+    res.json(jsonResp);
+       }
+    else {
     jsonResp = {
       "unix": miliseconds,
       "natural": readableDate
@@ -53,6 +71,9 @@ app.use(function(req, res, next) {
     
     res.json(jsonResp);
   }
+  }
+ 
+  
   next();
 });
 
