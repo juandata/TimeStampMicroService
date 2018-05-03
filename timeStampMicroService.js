@@ -19,6 +19,9 @@ function Unix_timestamp(t) {
   var year = dt.getFullYear();
   return months[month] + ' ' + day + ', ' + year;
 };
+app.use(function(err, req, res, next){
+  console.log("there was an error");
+});
 app.use(function(req, res, next) {
   var date = req.url.substr(1);
   var miliseconds = parseInt(date);
@@ -53,10 +56,19 @@ app.use(function(req, res, next) {
   }
   next();
 });
-app.use(function(err, req, res, next){
-  console.log(err.stack);
-});
+
 app.use('/public', express.static('/app/public'));
+
+app.all('*', function(req, res){
+  throw new Error("Bad request");
+        });
+app.use(function(e, req, res, next) {
+    if (e.message === "Bad request") {
+      //  res.status(400).json({error: {msg: e.message, stack: e.stack}});
+      console.log("bad");
+    }
+});
+
 app.listen(process.env.PORT, function() {
   console.log('Node.js listening ...');
 });
