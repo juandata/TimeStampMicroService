@@ -26,18 +26,21 @@ app.listen(process.env.PORT);
 //app.use(express.static('public'));
 app.use(function (req, res, next) {
   //console.log("Middleware de nivel de aplicación sin ninguna vía de acceso de montaje"); 
-    var date = req.url.substr(1);
+    let date = req.url.substr(1);
     var miliseconds = parseInt(date);
     var unixDate = new Date(miliseconds);
-    console.log(unixDate);
+  
+    if(unixDate == "Invalid Date"){
+    var regExpr = /%/;
+    date = req.url.split(regExpr);
+    console.log('divided : ', date);
+        
+      //console.log("the date is wrong");
+       }
+     console.log(unixDate);
   
   /*
   console.log('Request URL:', req.url);
-  var regExpr = /%/;
-  var date = req.url.split(regExpr);
-  console.log('divided : ', date);
-  var month = date[0].substr(1);
-  console.log(month);
   */
   
   next();
