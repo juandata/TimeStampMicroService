@@ -21,7 +21,7 @@ app.get('/search', function(req, res){
 });
 app.listen(process.env.PORT);
  */
-var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], jsonResp = {}, readableDate = "";
 
 function Unix_timestamp(t) {
   var dt = new Date(t * 1000);
@@ -41,11 +41,18 @@ app.use(function(req, res, next) {
     var regExpr = /%/;
     date = date.split(regExpr);
     console.log('divided : ', date);
+    readableDate = Unix_timestamp(date);
+    var date1 = new Date();
 
     //console.log("the date is wrong");
   } else {
-    var readableDate = Unix_timestamp(date);
-    console.log(readableDate);
+    readableDate = Unix_timestamp(date);
+    jsonResp = {
+      "unix": miliseconds,
+      "natural": readableDate
+    };
+    
+    res.json(jsonResp);
   }
   next();
 });
