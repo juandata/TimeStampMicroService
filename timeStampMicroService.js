@@ -24,7 +24,12 @@ app.listen(process.env.PORT);
   */
 
 //app.use(express.static('public'));
+app.use(function (req, res, next) {
+  console.log('Time:', Date.now());
+  next();
+});
 app.use('/public', express.static('/app/public'));
+
 
 app.get('/', function(req, res) {
     console.log("this never appears"); 
