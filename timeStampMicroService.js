@@ -24,29 +24,22 @@ app.use(function(req, res, next) {
   var unixDate = new Date(miliseconds);
   if (unixDate == "Invalid Date") {
     var regExpr = /%20|,/;
-    date = date.split(regExpr);
     console.log(date);
+    date = date.split(regExpr);
     var date1 = new Date(date[0] + " " + date[1] + "," + date[3]);
-    console.log(date1);
-    /*if(date1.length != 3){
-      jsonResp = {
-        "unix": null,
-        "natural": null
-      };
-      res.json(jsonResp);
-    }*/
     if (date1 == "Invalid Date") {
       jsonResp = {
         "unix": null,
         "natural": null
       };
       res.json(jsonResp);
+
     } else {
       var date2 = date1.getTime();
       var timestamp = Math.floor(date2 / 1000);
       jsonResp = {
         "unix": timestamp,
-        "natural": date[0] + " " + date[1] + "," + date[2]
+        "natural": date[0] + " " + date[1] + ", " + date[3]
       };
       res.json(jsonResp);
     }
@@ -59,7 +52,6 @@ app.use(function(req, res, next) {
 
     res.json(jsonResp);
   }
-  next();
 });
 app.listen(process.env.PORT, function() {
   console.log('Node.js listening ...');
