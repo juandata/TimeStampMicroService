@@ -24,7 +24,6 @@ app.use(function(req, res, next) {
   var unixDate = new Date(miliseconds);
   if (unixDate == "Invalid Date") {
     var regExpr = /%20|,/;
-    console.log(date);
     date = date.split(regExpr);
     var date1 = new Date(date[0] + " " + date[1] + "," + date[3]);
     if (date1 == "Invalid Date") {

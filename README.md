@@ -6,8 +6,8 @@ This is one of the 10 FreeCodeCamp challenges designed to get the FCC backend ce
 This microservice is a FullStack javaScript app that returns the parameters of the url as a date in Json.
 The parameters must be either a valid unix timestamp date or a natural language date, example:
 
-May%13%2015 (natural language date separated by percentages)
-[Natural Date : https://cyber-clock.glitch.me/May%13%1](https://cyber-clock.glitch.me/May%13%15)
+May%2013,%202015 (natural language date separated by spaces %20 as written: May 13, 2015)
+[Natural Date : https://cyber-clock.glitch.me/May%13%1](https://cyber-clock.glitch.me/May%2013,%202015)
 
 1450137600 (unix timestamp date):
 [Unix Date : https://cyber-clock.glitch.me/1431475200](https://cyber-clock.glitch.me/1431475200)
