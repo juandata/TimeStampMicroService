@@ -23,10 +23,11 @@ app.use(function(req, res, next) {
   var miliseconds = parseInt(date);
   var unixDate = new Date(miliseconds);
   if (unixDate == "Invalid Date") {
-    var regExpr = /%20/;
+    var regExpr = /%20|,/;
     date = date.split(regExpr);
     console.log(date);
-    var date1 = new Date(date[0] + " " + date[1] + "," + date[2]);
+    var date1 = new Date(date[0] + " " + date[1] + "," + date[3]);
+    console.log(date1);
     /*if(date1.length != 3){
       jsonResp = {
         "unix": null,
